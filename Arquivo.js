@@ -63,48 +63,4 @@ let n = 5;
 console.log(somaDosCubos(n)); // Calculado pelo código
 console.log(formulaSomaDosCubos(n)); // Calculado pela fórmula
 
-const plotly = require('plotly')('username', 'apiKey'); // Substitua com suas credenciais de Plotly
-const linspace = require('linspace');
-
-function G(x) {
-    if (x < 0) {
-        return -x - (x - 3) - (2 * x - 7) - (x - 9);
-    } else if (x >= 0 && x < 3) {
-        return x - (x - 3) - (2 * x - 7) - (x - 9);
-    } else if (x >= 3 && x < 3.5) {
-        return x + (x - 3) - (2 * x - 7) - (x - 9);
-    } else if (x >= 3.5 && x < 9) {
-        return x + (x - 3) + (2 * x - 7) - (x - 9);
-    } else {
-        return x + (x - 3) + (2 * x - 7) + (x - 9);
-    }
-}
-
-const xValues = linspace(-10, 10, 400);
-const yValues = xValues.map(G);
-
-const data = [
-    {
-        x: xValues,
-        y: yValues,
-        type: 'scatter'
-    }
-];
-
-const layout = {
-    title: 'Gráfico da Função G(x)',
-    xaxis: { title: 'x' },
-    yaxis: { title: 'G(x)' },
-    width: 800,
-    height: 600
-};
-
-plotly.plot(data, layout, function (err, msg) {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log('Gráfico criado:', msg.url);
-    }
-});
-
 
